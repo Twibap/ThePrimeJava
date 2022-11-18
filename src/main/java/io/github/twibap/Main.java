@@ -4,7 +4,12 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        int number = Integer.parseInt(args[0]);
+        int value = Integer.parseInt(args[0]);
+        int number;
+        if (value < 0)
+            number = Integer.MAX_VALUE;
+        else
+            number = value;
 
         System.out.println("Find Primes under "+ number);
 
