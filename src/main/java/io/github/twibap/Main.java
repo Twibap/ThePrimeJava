@@ -6,9 +6,6 @@ public class Main {
     public static void main(String[] args) {
         int number = Integer.parseInt(args[0]);
 
-        long start = System.currentTimeMillis();
-
-        System.out.println("Hello Prime!");
         System.out.println("Find Primes under "+ number);
 
         int count = primeNumberCountUnder(number);
