@@ -11,16 +11,23 @@ public class Main {
         System.out.println("Hello Prime!");
         System.out.println("Find Primes under "+ number);
 
-        ArrayList<Integer> primes = new ArrayList<>();
+        int count = primeNumberCountUnder(number);
+        System.out.println("Primes of under "+number+" is " + count);
+    }
+
+    static int primeNumberCountUnder(int number){
+        int pseudoCount = primeCountingFunction(number);
+        ArrayList<Integer> primes = new ArrayList<>(pseudoCount);
+        System.out.println("Pseudo count is "+pseudoCount);
         for (int i = 2; i <= number; i++) {
             if (isPrime(i))
                 primes.add(i);
         }
+        return primes.size();
+    }
 
-        System.out.println("The Prime number Count is " + primes.size());
-
-        long end = System.currentTimeMillis();
-        System.out.println((end - start)+"ms");
+    static int primeCountingFunction(int number) {
+        return (int) (number / Math.log(number));
     }
 
     static boolean isPrime(int number) {
