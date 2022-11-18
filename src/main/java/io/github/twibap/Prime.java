@@ -1,7 +1,5 @@
 package io.github.twibap;
 
-import java.util.ArrayList;
-
 public class Prime {
     public static void main(String[] args) {
         int value = Integer.parseInt(args[0]);
@@ -19,13 +17,13 @@ public class Prime {
 
     static int primeNumberCountUnder(int number){
         int pseudoCount = primeCountingFunction(number);
-        ArrayList<Integer> primes = new ArrayList<>(pseudoCount);
+        int count = 0;
         System.out.println("Pseudo count is "+pseudoCount);
         for (int i = 2; i <= number; i++) {
             if (isPrime(i))
-                primes.add(i);
+                count++;
         }
-        return primes.size();
+        return count;
     }
 
     static int primeCountingFunction(int number) {
