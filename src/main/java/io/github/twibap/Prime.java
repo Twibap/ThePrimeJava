@@ -2,7 +2,7 @@ package io.github.twibap;
 
 import java.util.ArrayList;
 
-public class Main {
+public class Prime {
     public static void main(String[] args) {
         int value = Integer.parseInt(args[0]);
         int number;
