@@ -1,5 +1,7 @@
 package io.github.twibap;
 
+import java.util.Arrays;
+
 public class Prime {
     public static void main(String[] args) {
         int value = Integer.parseInt(args[0]);
@@ -11,19 +13,23 @@ public class Prime {
 
         System.out.println("Find Primes under "+ number);
 
-        int count = primeNumberCountUnder(number);
+        long count = primeNumberCountUnder(number);
         System.out.println("Primes of under "+number+" is " + count);
     }
 
-    static int primeNumberCountUnder(int number){
-        int pseudoCount = primeCountingFunction(number);
-        int count = 0;
-        System.out.println("Pseudo count is "+pseudoCount);
-        for (int i = 2; i <= number; i++) {
-            if (isPrime(i))
-                count++;
+    static long primeNumberCountUnder(int number){
+        int[] numbers = new int[number];
+        for (int i = 1; i <= number; i++) {
+            numbers[i-1] = i;
         }
-        return count;
+
+        int pseudoCount = primeCountingFunction(number);
+        System.out.println("Pseudo count is "+pseudoCount);
+
+        return Arrays.stream(numbers)
+                .parallel()
+                .filter(Prime::isPrime)
+                .count();
     }
 
     static int primeCountingFunction(int number) {
