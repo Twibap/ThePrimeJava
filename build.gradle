@@ -16,7 +16,7 @@ dependencies {
 
 jar {
     manifest {
-        attributes 'Main-Class': 'io.github.twibap.Main'
+        attributes 'Main-Class': 'io.github.twibap.Prime'
     }
 }
 
