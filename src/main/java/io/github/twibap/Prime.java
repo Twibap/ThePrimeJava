@@ -17,7 +17,7 @@ public class Prime {
         int value = Integer.parseInt(args[0]);
         int number;
         if (value < 0)
-            number = Integer.MAX_VALUE / Integer.BYTES;
+            number = Integer.MAX_VALUE - 8; // Jvm limitation of Array size
         else
             number = value;
 
@@ -38,7 +38,7 @@ public class Prime {
     }
 
     long countUnder(int number){
-        int[] numbers = new int[number];
+        int[] numbers = new int[number];    // Integer.MAX_VALUE 의 경우 Heap size 10G 이상 필요함
         for (int i = 1; i <= number; i++) {
             numbers[i-1] = i;
         }
