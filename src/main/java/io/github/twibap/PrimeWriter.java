@@ -30,13 +30,13 @@ public class PrimeWriter extends Thread {
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
 
             while (!countingDone || !queue.isEmpty()) {
+                if (queue.isEmpty())
+                    continue;
                 if (file.length() != 0)
                     bufferedWriter.newLine();
-                if (!queue.isEmpty()) {
-                    String strNumber = String.valueOf(queue.poll());
-                    bufferedWriter.write(strNumber);
-                    bufferedWriter.flush();
-                }
+                String strNumber = String.valueOf(queue.poll());
+                bufferedWriter.write(strNumber);
+                bufferedWriter.flush();
             }
 
             System.out.println("Prime numbers are written!");
