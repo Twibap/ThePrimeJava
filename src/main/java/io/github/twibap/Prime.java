@@ -1,5 +1,10 @@
 package io.github.twibap;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Prime {
     public static void main(String[] args) {
         int value = Integer.parseInt(args[0]);
@@ -20,8 +25,10 @@ public class Prime {
         int count = 0;
         System.out.println("Pseudo count is "+pseudoCount);
         for (int i = 2; i <= number; i++) {
-            if (isPrime(i))
+            if (isPrime(i)) {
+                writePrime(i);
                 count++;
+            }
         }
         return count;
     }
@@ -44,5 +51,21 @@ public class Prime {
                 return number == i;
         }
         return true;
+    }
+
+    static void writePrime(int number) {
+        String strNumber = String.valueOf(number);
+        File file = new File("./PrimeNumbers.txt");
+        FileWriter writer;
+        try {
+            writer = new FileWriter(file, true);
+            BufferedWriter bufferedWriter = new BufferedWriter(writer);
+            if (file.length() != 0)
+                bufferedWriter.newLine();
+            bufferedWriter.write(strNumber);
+            bufferedWriter.flush();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
