@@ -55,9 +55,11 @@ public class Prime {
 
     static void writePrime(int number) {
         String strNumber = String.valueOf(number);
-        File file = new File("./PrimeNumbers.txt");
+        File file = new File("./out/PrimeNumbers.txt");
         FileWriter writer;
         try {
+            if (!file.getParentFile().exists())
+                file.getParentFile().mkdirs();
             writer = new FileWriter(file, true);
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
             if (file.length() != 0)
