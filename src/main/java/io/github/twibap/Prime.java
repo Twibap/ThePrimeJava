@@ -17,13 +17,13 @@ public class Prime {
         int value = Integer.parseInt(args[0]);
         int number;
         if (value < 0)
-            number = Integer.MAX_VALUE;
+            number = Integer.MAX_VALUE / Integer.BYTES;
         else
             number = value;
 
         System.out.println("Find Primes under "+ number);
 
-        Prime prime = new Prime(value);
+        Prime prime = new Prime(number);
         prime.writer.start();
 
         long count = prime.countUnder(number);
