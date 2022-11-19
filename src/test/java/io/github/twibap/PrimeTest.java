@@ -9,15 +9,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class PrimeTest {
 
     @Test
-    void primeNumberCountForNegative() {
-        int number = -10000;
-        int expected = 0;
-        int count = Prime.primeNumberCountUnder(number);
-
-        assertEquals(expected, count);
-    }
-
-    @Test
     void primeNumberCountUnder100000000() {
         int number = 100000000;
         int expected = 5761455;
