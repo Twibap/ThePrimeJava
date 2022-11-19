@@ -1,8 +1,18 @@
 package io.github.twibap;
 
 import java.util.Arrays;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class Prime {
+
+    Queue<Integer> queue = new ConcurrentLinkedQueue<>();
+    PrimeWriter writer;
+
+    public Prime(int value) {
+        writer = new PrimeWriter(queue, value);
+    }
+
     public static void main(String[] args) {
         int value = Integer.parseInt(args[0]);
         int number;
@@ -13,11 +23,21 @@ public class Prime {
 
         System.out.println("Find Primes under "+ number);
 
-        long count = primeNumberCountUnder(number);
+        Prime prime = new Prime(value);
+        prime.writer.start();
+
+        long count = prime.countUnder(number);
         System.out.println("Primes of under "+number+" is " + count);
+
+        prime.writer.done();
+        try {
+            prime.writer.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    static long primeNumberCountUnder(int number){
+    long countUnder(int number){
         int[] numbers = new int[number];
         for (int i = 1; i <= number; i++) {
             numbers[i-1] = i;
@@ -29,6 +49,7 @@ public class Prime {
         return Arrays.stream(numbers)
                 .parallel()
                 .filter(Prime::isPrime)
+                .peek(queue::add)
                 .count();
     }
 
