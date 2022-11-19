@@ -1,36 +1,56 @@
 package io.github.twibap;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.util.Arrays;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class Prime {
+
+    Queue<Integer> queue = new ConcurrentLinkedQueue<>();
+    PrimeWriter writer;
+
+    public Prime(int value) {
+        writer = new PrimeWriter(queue, value);
+    }
+
     public static void main(String[] args) {
         int value = Integer.parseInt(args[0]);
         int number;
         if (value < 0)
-            number = Integer.MAX_VALUE;
+            number = Integer.MAX_VALUE - 8; // Jvm limitation of Array size
         else
             number = value;
 
         System.out.println("Find Primes under "+ number);
 
-        int count = primeNumberCountUnder(number);
+        Prime prime = new Prime(number);
+        prime.writer.start();
+
+        long count = prime.countUnder(number);
         System.out.println("Primes of under "+number+" is " + count);
+
+        prime.writer.done();
+        try {
+            prime.writer.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    static int primeNumberCountUnder(int number){
-        int pseudoCount = primeCountingFunction(number);
-        int count = 0;
-        System.out.println("Pseudo count is "+pseudoCount);
-        for (int i = 2; i <= number; i++) {
-            if (isPrime(i)) {
-                writePrime(i);
-                count++;
-            }
+    long countUnder(int number){
+        int[] numbers = new int[number];    // Integer.MAX_VALUE 의 경우 Heap size 10G 이상 필요함
+        for (int i = 1; i <= number; i++) {
+            numbers[i-1] = i;
         }
-        return count;
+
+        int pseudoCount = primeCountingFunction(number);
+        System.out.println("Pseudo count is "+pseudoCount);
+
+        return Arrays.stream(numbers)
+                .parallel()
+                .filter(Prime::isPrime)
+                .peek(queue::add)
+                .count();
     }
 
     static int primeCountingFunction(int number) {
@@ -51,23 +71,5 @@ public class Prime {
                 return number == i;
         }
         return true;
-    }
-
-    static void writePrime(int number) {
-        String strNumber = String.valueOf(number);
-        File file = new File("./out/PrimeNumbers.txt");
-        FileWriter writer;
-        try {
-            if (!file.getParentFile().exists())
-                file.getParentFile().mkdirs();
-            writer = new FileWriter(file, true);
-            BufferedWriter bufferedWriter = new BufferedWriter(writer);
-            if (file.length() != 0)
-                bufferedWriter.newLine();
-            bufferedWriter.write(strNumber);
-            bufferedWriter.flush();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 }

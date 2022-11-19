@@ -65,7 +65,8 @@ class PrimeTest {
     void primeNumberCountUnder10000000() {
         int number = 10000000;
         int expected = 664579;
-        int count = Prime.primeNumberCountUnder(number);
+        Prime prime = new Prime(number);
+        long count = prime.countUnder(number);
 
         assertEquals(expected, count);
     }
@@ -75,7 +76,8 @@ class PrimeTest {
     void primeNumberCountUnder100000000() {
         int number = 100000000;
         int expected = 5761455;
-        int count = Prime.primeNumberCountUnder(number);
+        Prime prime = new Prime(number);
+        long count = prime.countUnder(number);
 
         assertEquals(expected, count);
     }
