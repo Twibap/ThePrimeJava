@@ -17,7 +17,7 @@ public class Prime {
         int value = Integer.parseInt(args[0]);
         int number;
         if (value < 0)
-            number = Integer.MAX_VALUE - 8; // Jvm limitation of Array size
+            number = Integer.MAX_VALUE;
         else
             number = value;
 
