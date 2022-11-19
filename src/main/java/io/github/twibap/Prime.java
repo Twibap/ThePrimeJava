@@ -38,23 +38,22 @@ public class Prime {
     }
 
     long countUnder(int number){
-        int[] numbers = new int[number];    // Integer.MAX_VALUE 의 경우 Heap size 10G 이상 필요함
-        for (int i = 1; i <= number; i++) {
-            numbers[i-1] = i;
+        if (number < 2)
+            return 0;
+        if (number == 2) {
+            queue.add(number);
+            return 1;
         }
 
-        int pseudoCount = primeCountingFunction(number);
-        System.out.println("Pseudo count is "+pseudoCount);
-
-        return Arrays.stream(numbers)
-                .parallel()
-                .filter(Prime::isPrime)
-                .peek(queue::add)
-                .count();
-    }
-
-    static int primeCountingFunction(int number) {
-        return (int) (number / Math.log(number));
+        queue.add(2);
+        long count = 1;
+        for (int i = 3; i <= number; i += 2) {
+            if (isPrime(i)) {
+                queue.add(i);
+                count++;
+            }
+        }
+        return count;
     }
 
     static boolean isPrime(int number) {
@@ -66,10 +65,11 @@ public class Prime {
             return false;
 
         int rootOfNumber = (int) Math.sqrt(number);
-        for (int i = 3; i <= rootOfNumber; i += 2) {
-            if (number % i == 0)
-                return number == i;
+        int[] range = new int[rootOfNumber / 2];    // only odd number
+        for (int i = 0; i < rootOfNumber/2; i++) {
+            range[i] = 2 * i + 3;
         }
-        return true;
+        return Arrays.stream(range)
+                .noneMatch(i -> number % i == 0);
     }
 }
