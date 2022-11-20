@@ -30,8 +30,8 @@ class PrimeTest {
     @Test
     @Order(2)
     void primeNumberCountUnder2() {
-        int number = 2;
-        int expected = 1;
+        int number = 2; // Prime
+        int expected = 0;
         Prime prime = new Prime(number);
         long count = prime.countUnder(number);
 
@@ -42,8 +42,32 @@ class PrimeTest {
     @Test
     @Order(3)
     void primeNumberCountUnder3() {
-        int number = 3;
-        int expected = 2;
+        int number = 3;     // Prime
+        int expected = 1;
+        Prime prime = new Prime(number);
+        long count = prime.countUnder(number);
+
+        assertEquals(expected, count);
+
+    }
+
+    @Test
+    @Order(3)
+    void primeNumberCountUnder7() {
+        int number = 7;     // Prime
+        int expected = 3;
+        Prime prime = new Prime(number);
+        long count = prime.countUnder(number);
+
+        assertEquals(expected, count);
+
+    }
+
+    @Test
+    @Order(4)
+    void primeNumberCountUnder11() {
+        int number = 11;    // Prime
+        int expected = 4;
         Prime prime = new Prime(number);
         long count = prime.countUnder(number);
 
@@ -66,8 +90,8 @@ class PrimeTest {
     @Test
     @Order(4)
     void primeNumberCountUnder23() {    // odd number
-        int number = 23;
-        int expected = 9;
+        int number = 23;    // Prime
+        int expected = 8;
         Prime prime = new Prime(number);
         long count = prime.countUnder(number);
 
@@ -89,7 +113,7 @@ class PrimeTest {
     @Test
     @Order(5)
     void primeNumberCountUnder1013() {  // odd number
-        int number = 1000;
+        int number = 1013;  // Prime
         int expected = 169;
         Prime prime = new Prime(number);
         long count = prime.countUnder(number);
@@ -110,8 +134,8 @@ class PrimeTest {
 
     @Test
     @Order(6)
-    void primeNumberCountUnder1000023() {
-        int number = 1000023;
+    void primeNumberCountUnder1000023() {   // odd
+        int number = 1000023;   // not Prime
         int expected = 78499;
         Prime prime = new Prime(number);
         long count = prime.countUnder(number);
@@ -132,8 +156,8 @@ class PrimeTest {
 
     @Test
     @Order(7)
-    void primeNumberCountUnder10000049() {
-        int number = 10000049;
+    void primeNumberCountUnder10000049() {  // odd
+        int number = 10000049;  // not Prime
         int expected = 664580;
         Prime prime = new Prime(number);
         long count = prime.countUnder(number);
@@ -154,8 +178,8 @@ class PrimeTest {
 
     @Test
     @Order(8)
-    void primeNumberCountUnder100000111() {
-        int number = 100000111;
+    void primeNumberCountUnder100000123() { // odd
+        int number = 100000123; // Prime
         int expected = 5761461;
         Prime prime = new Prime(number);
         long count = prime.countUnder(number);
