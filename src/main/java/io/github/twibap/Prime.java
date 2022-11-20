@@ -1,5 +1,6 @@
 package io.github.twibap;
 
+import java.util.Arrays;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
@@ -37,14 +38,25 @@ public class Prime {
     }
 
     long countUnder(int number){
-        long count = 0;
-        for (int i = 0; i < number; i++) {
-            if (isPrime(i)) {
-                queue.add(i);
-                count++;
-            }
+        if (number <= 2)
+            return 0;
+
+        // 2와 홀수만 계산 대상으로 삼는다.
+        int targetCounts = (number / 2);
+        int[] targets = new int[targetCounts];
+        targets[0] = 2;
+        for (int i = 1; i < targetCounts; i++) {
+            targets[i] = 2 * (i - 1) + 3;
         }
-        return count;
+
+        return Arrays.stream(targets)
+                .parallel()
+                .filter(Prime::isPrime)
+                .peek(prime -> {
+                    queue.add(prime);
+                    System.out.println("Prime find! "+prime);
+                })
+                .count();
     }
 
     static boolean isPrime(int number) {
