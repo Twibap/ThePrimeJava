@@ -64,10 +64,33 @@ class PrimeTest {
     }
 
     @Test
+    @Order(4)
+    void primeNumberCountUnder23() {    // odd number
+        int number = 23;
+        int expected = 9;
+        Prime prime = new Prime(number);
+        long count = prime.countUnder(number);
+
+        assertEquals(expected, count);
+
+    }
+
+    @Test
     @Order(5)
     void primeNumberCountUnder1000() {
         int number = 1000;
         int expected = 168;
+        Prime prime = new Prime(number);
+        long count = prime.countUnder(number);
+
+        assertEquals(expected, count);
+    }
+
+    @Test
+    @Order(5)
+    void primeNumberCountUnder1013() {  // odd number
+        int number = 1000;
+        int expected = 169;
         Prime prime = new Prime(number);
         long count = prime.countUnder(number);
 
@@ -84,6 +107,18 @@ class PrimeTest {
 
         assertEquals(expected, count);
     }
+
+    @Test
+    @Order(6)
+    void primeNumberCountUnder1000023() {
+        int number = 1000023;
+        int expected = 78499;
+        Prime prime = new Prime(number);
+        long count = prime.countUnder(number);
+
+        assertEquals(expected, count);
+    }
+
     @Test
     @Order(7)
     void primeNumberCountUnder10000000() {
@@ -96,10 +131,32 @@ class PrimeTest {
     }
 
     @Test
+    @Order(7)
+    void primeNumberCountUnder10000049() {
+        int number = 10000049;
+        int expected = 664580;
+        Prime prime = new Prime(number);
+        long count = prime.countUnder(number);
+
+        assertEquals(expected, count);
+    }
+
+    @Test
     @Order(8)
     void primeNumberCountUnder100000000() {
         int number = 100000000;
         int expected = 5761455;
+        Prime prime = new Prime(number);
+        long count = prime.countUnder(number);
+
+        assertEquals(expected, count);
+    }
+
+    @Test
+    @Order(8)
+    void primeNumberCountUnder100000111() {
+        int number = 100000111;
+        int expected = 5761461;
         Prime prime = new Prime(number);
         long count = prime.countUnder(number);
 
