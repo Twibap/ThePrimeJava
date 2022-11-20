@@ -1,6 +1,5 @@
 package io.github.twibap;
 
-import java.util.Arrays;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
@@ -38,16 +37,8 @@ public class Prime {
     }
 
     long countUnder(int number){
-        if (number < 2)
-            return 0;
-        if (number == 2) {
-            queue.add(number);
-            return 1;
-        }
-
-        queue.add(2);
-        long count = 1;
-        for (int i = 3; i <= number; i += 2) {
+        long count = 0;
+        for (int i = 0; i <= number; i++) {
             if (isPrime(i)) {
                 queue.add(i);
                 count++;
@@ -65,11 +56,10 @@ public class Prime {
             return false;
 
         int rootOfNumber = (int) Math.sqrt(number);
-        int[] range = new int[rootOfNumber / 2];    // only odd number
-        for (int i = 0; i < rootOfNumber/2; i++) {
-            range[i] = 2 * i + 3;
+        for (int i = 3; i <= rootOfNumber; i += 2) {
+            if (number % i == 0)
+                return number == i;
         }
-        return Arrays.stream(range)
-                .noneMatch(i -> number % i == 0);
+        return true;
     }
 }
