@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
+import me.tongfei.progressbar.*;
+
 public class Prime {
 
     Queue<Integer> queue = new ConcurrentLinkedQueue<>();
@@ -49,13 +51,18 @@ public class Prime {
             targets[i] = 2 * (i - 1) + 3;
         }
 
-        return Arrays.stream(targets)
-                .parallel()
+        ProgressBarBuilder builder = new ProgressBarBuilder();
+        builder.setStyle(ProgressBarStyle.ASCII);
+        builder.setInitialMax(targetCounts);
+        builder.showSpeed();
+
+        return ProgressBar
+                .wrap(
+                        Arrays.stream(targets).parallel(),
+                        builder
+                )
                 .filter(Prime::isPrime)
-                .peek(prime -> {
-                    queue.add(prime);
-                    System.out.println("Prime find! "+prime);
-                })
+                .peek(queue::add)
                 .count();
     }
 
