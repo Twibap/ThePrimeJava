@@ -65,6 +65,27 @@ class PrimeTest {
 
     @Test
     @Order(5)
+    void primeNumberCountUnder1000() {
+        int number = 1000;
+        int expected = 168;
+        Prime prime = new Prime(number);
+        long count = prime.countUnder(number);
+
+        assertEquals(expected, count);
+    }
+
+    @Test
+    @Order(6)
+    void primeNumberCountUnder1000000() {
+        int number = 1000000;
+        int expected = 78498;
+        Prime prime = new Prime(number);
+        long count = prime.countUnder(number);
+
+        assertEquals(expected, count);
+    }
+    @Test
+    @Order(7)
     void primeNumberCountUnder10000000() {
         int number = 10000000;
         int expected = 664579;
@@ -75,7 +96,7 @@ class PrimeTest {
     }
 
     @Test
-    @Order(6)
+    @Order(8)
     void primeNumberCountUnder100000000() {
         int number = 100000000;
         int expected = 5761455;
