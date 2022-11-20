@@ -1,6 +1,7 @@
 package io.github.twibap;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
@@ -9,8 +10,11 @@ public class Prime {
     Queue<Integer> queue = new ConcurrentLinkedQueue<>();
     PrimeWriter writer;
 
+    HashSet<Integer> primes;
+
     public Prime(int value) {
         writer = new PrimeWriter(queue, value);
+        primes = new HashSet<>(pseudoCountingPrime(value));
     }
 
     public static void main(String[] args) {
@@ -46,14 +50,18 @@ public class Prime {
         }
 
         queue.add(2);
-        long count = 1;
+        primes.add(2);
         for (int i = 3; i <= number; i += 2) {
-            if (isPrime(i)) {
+            if (isPrimeBySieve(i)) {
                 queue.add(i);
-                count++;
+                primes.add(i);
             }
         }
-        return count;
+        return primes.size();
+    }
+
+    static int pseudoCountingPrime(int number) {
+        return (int) (number / Math.log(number));
     }
 
     static boolean isPrime(int number) {
@@ -71,5 +79,20 @@ public class Prime {
         }
         return Arrays.stream(range)
                 .noneMatch(i -> number % i == 0);
+    }
+
+    boolean isPrimeBySieve(int number) {
+        if (number < 2)
+            return false;
+        if (number == 2)
+            return true;
+        if (number % 2 == 0)
+            return false;
+
+        int rootOfNumber = (int) Math.sqrt(number);
+        return primes.stream()
+                .parallel()
+                .filter(prime -> rootOfNumber >= prime)
+                .noneMatch(prime -> number % prime == 0);
     }
 }
