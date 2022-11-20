@@ -2,16 +2,22 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="ThePrimeJava:jar" />
+      <artifact name="ThePrimeJava2:jar" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66e6e409-bb23-42df-9536-f0de254f090c" name="Changes" comment="Setting for JAR artifact">
+    <list default="true" id="66e6e409-bb23-42df-9536-f0de254f090c" name="Changes" comment="다시 StreamApi 적용&#10;&#10;- 2와 홀수만 계산 대상으로 하여 배열 크기를 반으로 줄인다.">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/ThePrimeJava2_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/ThePrimeJava_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/ThePrimeJava_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/github/twibap/Prime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/github/twibap/Prime.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +27,7 @@
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
+  <component name="ExportTestResults" outputFolder="$PROJECT_DIR$/out/test" userTempatePath="" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -34,7 +41,59 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ThePrimeJava" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ThePrimeJava" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ThePrimeJava" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ThePrimeJava" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ThePrimeJava" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ThePrimeJava" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="me.tongfei:progressbar:0.9.5" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ThePrimeJava" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ThePrimeJava" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="me.tongfei:progressbar:0.9.5" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ThePrimeJava" type="f1a62948:ProjectNode" />
+                <item name="실행 구성" type="7b0102dc:RunConfigurationsNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -52,7 +111,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="feature/SieveOfEratosthenes" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -67,6 +126,14 @@
             <RecentBranchesForRepo>
               <option name="branches">
                 <list>
+                  <RecentBranch>
+                    <option name="branchName" value="feature/lower_memory_take_longer_time" />
+                    <option name="lastUsedInstant" value="1668916409" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="feature/SieveOfEratosthenes" />
+                    <option name="lastUsedInstant" value="1668909204" />
+                  </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="feature/StreamApi" />
                     <option name="lastUsedInstant" value="1668839473" />
@@ -100,15 +167,17 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "jdk.selected.JAVA_MODULE": "11",
     "last_opened_file_path": "/Users/tky476/Workspace/study/MathStudy/Prime/ThePrimeJava",
-    "project.structure.last.edited": "SDK",
+    "project.structure.last.edited": "아티팩트",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler"
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/out/test" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -118,7 +187,7 @@
       <recent name="io.github.twibap" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JAR 애플리케이션.ThePrime">
     <configuration name="&lt;template&gt;" type="Applet" default="true" selected="false">
       <option name="MAIN_CLASS_NAME" />
       <option name="HTML_FILE_NAME" />
@@ -134,6 +203,50 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PrimeTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;io.github.twibap.PrimeTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ThePrimeJava [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="dependencies" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -142,13 +255,14 @@
       </method>
     </configuration>
     <configuration name="ThePrime" type="JarApplication">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/ThePrimeJava_jar/ThePrimeJava.jar" />
-      <option name="PROGRAM_PARAMETERS" value="1000000" />
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/ThePrimeJava2_jar/ThePrimeJava.jar" />
+      <option name="VM_PARAMETERS" value="-Xmx1G -Xms1G" />
+      <option name="PROGRAM_PARAMETERS" value="-1" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2">
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="ThePrimeJava:jar" />
+          <artifact name="ThePrimeJava2:jar" />
         </option>
       </method>
     </configuration>
@@ -170,6 +284,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Gradle.ThePrimeJava [dependencies]" />
+      <item itemvalue="Gradle.PrimeTest" />
+      <item itemvalue="JAR 애플리케이션.ThePrime" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.ThePrimeJava [dependencies]" />
+        <item itemvalue="Gradle.PrimeTest" />
+        <item itemvalue="Gradle.PrimeTest" />
+        <item itemvalue="Gradle.PrimeTest" />
+        <item itemvalue="Gradle.PrimeTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -341,8 +469,75 @@
       <option name="project" value="LOCAL" />
       <updated>1668858450462</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Add test cases">
+      <created>1668909163212</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1668909163212</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Not working at 10,000,000">
+      <created>1668916305109</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1668916305109</updated>
+    </task>
+    <task id="LOCAL-00026" summary="원점으로 회귀하고 말았다">
+      <created>1668919037443</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1668919037443</updated>
+    </task>
+    <task id="LOCAL-00027" summary="주어진 숫자가 홀수인 경우의 테스트 케이스 추가">
+      <created>1668920411817</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1668920411817</updated>
+    </task>
+    <task id="LOCAL-00028" summary="주어진 숫자가 소수인 경우, 합계에 포함">
+      <created>1668922962033</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1668922962033</updated>
+    </task>
+    <task id="LOCAL-00029" summary="주어진 숫자보다 작은 소수의 갯수 구하기">
+      <created>1668923321418</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1668923321418</updated>
+    </task>
+    <task id="LOCAL-00030" summary="주어진 숫자보다 작은 소수의 갯수 구하기">
+      <created>1668923474342</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1668923474342</updated>
+    </task>
+    <task id="LOCAL-00031" summary="다시 StreamApi 적용&#10;&#10;- 2와 홀수만 계산 대상으로 하여 배열 크기를 반으로 줄인다.">
+      <created>1668928676149</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1668928676149</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -356,11 +551,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initial Commit" />
-    <MESSAGE value="Change JDK 17 to 1.8" />
-    <MESSAGE value="The Prime by Java" />
-    <MESSAGE value="Use stream api&#10;&#10;- stream api make double time faster" />
-    <MESSAGE value="Make setting to runnable .jar" />
     <MESSAGE value="Add Prime-Counting Function to pseudo count" />
     <MESSAGE value="Remove unusable time count code" />
     <MESSAGE value="Make to easy argument to Integer max value" />
@@ -379,7 +569,24 @@
     <MESSAGE value="Bugfix&#10;&#10;- Remove empty line in output file" />
     <MESSAGE value="Fix Integer.Max_Value cause of JVM Arrays Limitation" />
     <MESSAGE value="Setting for JAR artifact" />
-    <option name="LAST_COMMIT_MESSAGE" value="Setting for JAR artifact" />
+    <MESSAGE value="Add test cases" />
+    <MESSAGE value="Not working at 10,000,000" />
+    <MESSAGE value="원점으로 회귀하고 말았다" />
+    <MESSAGE value="주어진 숫자가 홀수인 경우의 테스트 케이스 추가" />
+    <MESSAGE value="주어진 숫자가 소수인 경우, 합계에 포함" />
+    <MESSAGE value="주어진 숫자보다 작은 소수의 갯수 구하기" />
+    <MESSAGE value="다시 StreamApi 적용&#10;&#10;- 2와 홀수만 계산 대상으로 하여 배열 크기를 반으로 줄인다." />
+    <option name="LAST_COMMIT_MESSAGE" value="다시 StreamApi 적용&#10;&#10;- 2와 홀수만 계산 대상으로 하여 배열 크기를 반으로 줄인다." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NoClassDefFoundError" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
