@@ -38,7 +38,7 @@ public class Prime {
 
     long countUnder(int number){
         long count = 0;
-        for (int i = 0; i <= number; i++) {
+        for (int i = 0; i < number; i++) {
             if (isPrime(i)) {
                 queue.add(i);
                 count++;
