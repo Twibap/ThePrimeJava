@@ -44,26 +44,27 @@ public class Prime {
             return 0;
 
         // 2와 홀수만 계산 대상으로 삼는다.
-        int targetCounts = (number / 2);
-        int[] targets = new int[targetCounts];
-        targets[0] = 2;
-        for (int i = 1; i < targetCounts; i++) {
-            targets[i] = 2 * (i - 1) + 3;
+        PrimePager pager = new PrimePager(number);
+        int[] targets = pager.getPage();
+
+        long count = 0;
+        while (targets != null) {
+            ProgressBarBuilder builder = new ProgressBarBuilder();
+            builder.setStyle(ProgressBarStyle.ASCII);
+            builder.setInitialMax(targets.length);
+            builder.showSpeed();
+
+            count += ProgressBar
+                    .wrap(
+                            Arrays.stream(targets).filter(i -> i != 0).parallel(),
+                            builder
+                    )
+                    .filter(Prime::isPrime)
+                    .peek(queue::add)
+                    .count();
+            targets = pager.getPage();
         }
-
-        ProgressBarBuilder builder = new ProgressBarBuilder();
-        builder.setStyle(ProgressBarStyle.ASCII);
-        builder.setInitialMax(targetCounts);
-        builder.showSpeed();
-
-        return ProgressBar
-                .wrap(
-                        Arrays.stream(targets).parallel(),
-                        builder
-                )
-                .filter(Prime::isPrime)
-                .peek(queue::add)
-                .count();
+        return count;
     }
 
     static boolean isPrime(int number) {

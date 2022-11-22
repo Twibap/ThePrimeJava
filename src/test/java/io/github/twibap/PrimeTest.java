@@ -187,4 +187,26 @@ class PrimeTest {
         assertEquals(expected, count);
     }
 
+    @Test
+    @Order(9)
+    void primeNumberCountUnder123456789() { // odd
+        int number = 123456789; // Prime
+        int expected = 7027260;
+        Prime prime = new Prime(number);
+        long count = prime.countUnder(number);
+
+        assertEquals(expected, count);
+    }
+
+    @Test
+    @Order(10)
+    void primeNumberCountUnder234567890() { // odd
+        int number = 234567890; // Prime
+        int expected = 12879447;
+        Prime prime = new Prime(number);
+        long count = prime.countUnder(number);
+
+        assertEquals(expected, count);
+    }
+
 }
